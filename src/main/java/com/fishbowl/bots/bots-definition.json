@@ -4,7 +4,7 @@
         "dockerImage":"fishbowl",
         "autonomy":{
             "type": "proactive",
-            "initialDelay": 60,
+            "initialDelay": 30,
             "period": 10
         },
         "keyToPublish": "fishMovement",
@@ -22,15 +22,16 @@
                 "botId": "fish_1",
                 "isPersistent": true,
                 "xPosition": 0,
-                "yPosition": 0
+                "yPosition": 0,
+                "fishSilouette": "1"
             },
             {
                 "botId": "fish_2",
                 "isPersistent": true,
                 "xPosition": 5,
                 "yPosition": 5,
+                "fishSilouette": "2",
                 "autonomy": {
-                    "initialDelay": 60,
                     "period": 20
                 }
             }
@@ -47,11 +48,10 @@
         "orderToPublish": "",
         "rabbitOptions": {
             "mainQueue": "fishManager",
-            "bindings": [],
+            "bindings": ["fishMovement"],
             "queueByBot": false
         },
         "requiredPaths": [
-            "fishMovement"
         ],
         "bots": [
             {
