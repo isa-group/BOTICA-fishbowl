@@ -1,33 +1,61 @@
 [
     {
-        "botType": "Example",
+        "botType": "Fish",
         "dockerImage":"fishbowl",
         "autonomy":{
             "type": "proactive",
             "initialDelay": 60,
-            "period": 60
+            "period": 10
         },
-        "keyToPublish": "example",
-        "orderToPublish": "exampleOrder",
+        "keyToPublish": "fishMovement",
+        "orderToPublish": "moveFish",
         "rabbitOptions": {
-            "mainQueue": "example",
+            "mainQueue": "fish",
             "bindings": [
             ],
-            "queueByBot": true
+            "queueByBot": false
         },
         "requiredPaths":[
         ],
         "bots": [
             {
-                "botId": "ex_1",
+                "botId": "fish_1",
                 "isPersistent": true,
-                "autonomy": {
-                    "initialDelay": 120,
-                    "period": 120
-                }
+                "xPosition": 0,
+                "yPosition": 0
             },
             {
-                "botId": "ex_2",
+                "botId": "fish_2",
+                "isPersistent": true,
+                "xPosition": 5,
+                "yPosition": 5,
+                "autonomy": {
+                    "initialDelay": 60,
+                    "period": 20
+                }
+            }
+        ]
+    },
+    {
+        "botType": "FishManager",
+        "dockerImage": "fishbowl",
+        "autonomy": {
+            "type": "reactive",
+            "order": "moveFish"
+        },
+        "keyToPublish": "",
+        "orderToPublish": "",
+        "rabbitOptions": {
+            "mainQueue": "fishManager",
+            "bindings": [],
+            "queueByBot": false
+        },
+        "requiredPaths": [
+            "fishMovement"
+        ],
+        "bots": [
+            {
+                "botId": "manager_1",
                 "isPersistent": true
             }
         ]
