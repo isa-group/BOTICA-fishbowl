@@ -1,4 +1,4 @@
-package com.template.main;
+package com.fishbowl.main;
 
 import java.util.Properties;
 import java.util.concurrent.Executors;
@@ -12,7 +12,7 @@ import com.botica.utils.bot.BotHandler;
 public class LaunchBot {
 
     private static String botPropertiesFilePath = System.getenv("BOT_PROPERTY_FILE_PATH");  // The path to the bot's properties file.
-    private static String launchersPackage = "com.template.launchers";                           // The package where the launchers are located.
+    private static String launchersPackage = "com.fishbowl.launchers";                           // The package where the launchers are located.
 
     public static void main(String[] args) {
 

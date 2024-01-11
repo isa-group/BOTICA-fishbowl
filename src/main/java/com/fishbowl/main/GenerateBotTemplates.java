@@ -1,10 +1,10 @@
-package com.template.main;
+package com.fishbowl.main;
 
 import com.botica.utils.templates.TemplateGenerator;
 
 public class GenerateBotTemplates {
 
-    private static final String BOTS_DEFINITION_PATH = "src/main/java/com/template/bots";
+    private static final String BOTS_DEFINITION_PATH = "src/main/java/com/fishbowl/bots";
     private static final String PROPERTIES_PATH = "src/main/resources/BOTICAConfig";
 
     private static String templateType = null;

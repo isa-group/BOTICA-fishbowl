@@ -1,4 +1,4 @@
-package com.template.launchers;
+package com.fishbowl.launchers;
 
 import java.util.Properties;
 

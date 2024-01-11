@@ -4,8 +4,8 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.template</groupId>
-  <artifactId>template</artifactId>
+  <groupId>com.fishbowl</groupId>
+  <artifactId>fishbowl</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>
@@ -52,12 +52,12 @@
             <configuration>
               <archive>
                 <manifest>
-                  <mainClass>com.template.main.LaunchBot</mainClass>
+                  <mainClass>com.fishbowl.main.LaunchBot</mainClass>
                   <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                   <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                 </manifest>
               </archive>
-              <finalName>template</finalName>
+              <finalName>fishbowl</finalName>
               <appendAssemblyId>false</appendAssemblyId>
               <descriptorRefs>
                 <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -78,7 +78,7 @@
               <goal>java</goal>
             </goals>
             <configuration>
-              <mainClass>com.template.main.ConfigurationSetup</mainClass>
+              <mainClass>com.fishbowl.main.ConfigurationSetup</mainClass>
             </configuration>
           </execution>
           <!-- Launch BOTICA -->
@@ -98,7 +98,7 @@
               <goal>java</goal>
             </goals>
             <configuration>
-              <mainClass>com.template.main.LaunchCollector</mainClass>
+              <mainClass>com.fishbowl.main.LaunchCollector</mainClass>
             </configuration>
           </execution>
           <!-- Generate template -->
@@ -108,7 +108,7 @@
               <goal>java</goal>
             </goals>
             <configuration>
-              <mainClass>com.template.main.GenerateBotTemplates</mainClass>
+              <mainClass>com.fishbowl.main.GenerateBotTemplates</mainClass>
             </configuration>
           </execution>
         </executions>

@@ -1,7 +1,7 @@
 [
     {
         "botType": "Example",
-        "dockerImage":"template",
+        "dockerImage":"fishbowl",
         "autonomy":{
             "type": "proactive",
             "initialDelay": 60,

@@ -1,4 +1,4 @@
-package com.template.main;
+package com.fishbowl.main;
 
 import java.util.List;
 
