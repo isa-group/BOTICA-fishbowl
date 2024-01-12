@@ -15,12 +15,8 @@ public class FishManagerLauncher extends AbstractLauncher {
     private static final String FISH_Y_POSITION = "fishYPosition";
     private static final String FISH_SILOUETTE = "fishSilouette";
 
-    private FishTank fishTank;
-    private Integer fishTankVersion = 0;
-
     public FishManagerLauncher(String keyToPublish, String orderToPublish, Properties botProperties) {
         super(keyToPublish, orderToPublish, botProperties);
-        this.fishTank = new FishTank();
     }
 
     @Override
@@ -28,6 +24,10 @@ public class FishManagerLauncher extends AbstractLauncher {
         String fishSilouette = messageData.getString(FISH_SILOUETTE);
         Integer fishXPosition = messageData.getInt(FISH_X_POSITION);
         Integer fishYPosition = messageData.getInt(FISH_Y_POSITION);
+
+        Integer fishTankVersion = Integer.parseInt(botProperties.getProperty("bot.tankInitialVersion"));
+        String fishTankChars = botProperties.getProperty("bot.tankState");
+        FishTank fishTank = new FishTank(fishTankChars);
 
         if (fishTank.getFishSilouette(fishXPosition, fishYPosition).equals("-")) {
             fishTank.updateFishPosition(fishXPosition, fishYPosition, fishSilouette);
@@ -37,6 +37,8 @@ public class FishManagerLauncher extends AbstractLauncher {
             } catch (IOException e) {
                 logger.error("Error writing the fish tank in the file", e);
             }
+            botProperties.setProperty("bot.tankInitialVersion", String.valueOf(fishTankVersion++));
+            botProperties.setProperty("bot.tankState", fishTank.getFishTank());
         }
     }
 

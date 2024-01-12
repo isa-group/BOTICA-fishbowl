@@ -57,7 +57,9 @@
         "bots": [
             {
                 "botId": "manager_1",
-                "isPersistent": true
+                "isPersistent": true,
+                "tankInitialVersion": "1",
+                "tankState": "---------\\n---------\\n---------\\n---------\\n---------\\n---------\\n---------\\n---------\\n---------"
             }
         ]
     }
