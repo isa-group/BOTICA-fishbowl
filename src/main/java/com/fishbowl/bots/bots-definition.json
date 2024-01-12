@@ -44,14 +44,15 @@
             "type": "reactive",
             "order": "moveFish"
         },
-        "keyToPublish": "",
-        "orderToPublish": "",
+        "keyToPublish": "test",
+        "orderToPublish": "test",
         "rabbitOptions": {
             "mainQueue": "fishManager",
             "bindings": ["fishMovement"],
             "queueByBot": false
         },
         "requiredPaths": [
+            "./src/main/resources"
         ],
         "bots": [
             {

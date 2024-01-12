@@ -1,5 +1,7 @@
 package com.fishbowl.launchers;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 import org.json.JSONObject;
@@ -14,6 +16,7 @@ public class FishManagerLauncher extends AbstractLauncher {
     private static final String FISH_SILOUETTE = "fishSilouette";
 
     private FishTank fishTank;
+    private Integer fishTankVersion = 0;
 
     public FishManagerLauncher(String keyToPublish, String orderToPublish, Properties botProperties) {
         super(keyToPublish, orderToPublish, botProperties);
@@ -28,7 +31,12 @@ public class FishManagerLauncher extends AbstractLauncher {
 
         if (fishTank.getFishSilouette(fishXPosition, fishYPosition).equals("-")) {
             fishTank.updateFishPosition(fishXPosition, fishYPosition, fishSilouette);
-            System.out.println(fishTank.getFishTank());
+            logger.info("{} fish position updated to ({},{})", fishSilouette, fishXPosition, fishYPosition);
+            try (FileOutputStream fos = new FileOutputStream("src/main/resources/fishTank" + fishTankVersion++ + ".txt")) {
+                fos.write(fishTank.getFishTank().getBytes());
+            } catch (IOException e) {
+                logger.error("Error writing the fish tank in the file", e);
+            }
         }
     }
 

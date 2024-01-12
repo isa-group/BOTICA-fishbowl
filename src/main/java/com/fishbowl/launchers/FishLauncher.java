@@ -88,5 +88,4 @@ public class FishLauncher extends AbstractLauncher {
         message.put("fishYPosition", fishYPosition);
         return message;
     }
-    
 }
