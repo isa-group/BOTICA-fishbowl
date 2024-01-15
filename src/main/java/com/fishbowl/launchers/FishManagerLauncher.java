@@ -7,7 +7,7 @@ import java.util.Properties;
 import org.json.JSONObject;
 
 import com.botica.launchers.AbstractLauncher;
-import com.fishbowl.utils.FishTank;
+import com.fishbowl.utils.Fishbowl;
 
 public class FishManagerLauncher extends AbstractLauncher {
 
@@ -25,20 +25,20 @@ public class FishManagerLauncher extends AbstractLauncher {
         Integer fishXPosition = messageData.getInt(FISH_X_POSITION);
         Integer fishYPosition = messageData.getInt(FISH_Y_POSITION);
 
-        Integer fishTankVersion = Integer.parseInt(botProperties.getProperty("bot.tankInitialVersion"));
-        String fishTankChars = botProperties.getProperty("bot.tankState");
-        FishTank fishTank = new FishTank(fishTankChars);
+        Integer fishbowlVersion = Integer.parseInt(botProperties.getProperty("bot.fishbowlVersion"));
+        String fishbowlChars = botProperties.getProperty("bot.fishbowlState");
+        Fishbowl fishbowl = new Fishbowl(fishbowlChars);
 
-        if (fishTank.getFishSilouette(fishXPosition, fishYPosition).equals("-")) {
-            fishTank.updateFishPosition(fishXPosition, fishYPosition, fishSilouette);
+        if (fishbowl.getFishSilouette(fishXPosition, fishYPosition).equals("-")) {
+            fishbowl.updateFishPosition(fishXPosition, fishYPosition, fishSilouette);
             logger.info("{} fish position updated to ({},{})", fishSilouette, fishXPosition, fishYPosition);
-            try (FileOutputStream fos = new FileOutputStream("src/main/resources/fishTank" + fishTankVersion++ + ".txt")) {
-                fos.write(fishTank.getFishTank().getBytes());
+            try (FileOutputStream fos = new FileOutputStream("src/main/resources/fishbowl/v" + fishbowlVersion++ + ".txt")) {
+                fos.write(fishbowl.getFishbowl().getBytes());
             } catch (IOException e) {
-                logger.error("Error writing the fish tank in the file", e);
+                logger.error("Error writing the fishbowl in the file", e);
             }
-            botProperties.setProperty("bot.tankInitialVersion", String.valueOf(fishTankVersion++));
-            botProperties.setProperty("bot.tankState", fishTank.getFishTank());
+            botProperties.setProperty("bot.fishbowlVersion", String.valueOf(fishbowlVersion++));
+            botProperties.setProperty("bot.fishbowlState", fishbowl.getFishbowl());
         }
     }
 

@@ -52,14 +52,14 @@
             "queueByBot": false
         },
         "requiredPaths": [
-            "./src/main/resources"
+            "./src/main/resources/fishbowl"
         ],
         "bots": [
             {
                 "botId": "manager_1",
                 "isPersistent": true,
-                "tankInitialVersion": "1",
-                "tankState": "---------\\n---------\\n---------\\n---------\\n---------\\n---------\\n---------\\n---------\\n---------"
+                "fishbowlVersion": "1",
+                "fishbowlState": "---------\\n---------\\n---------\\n---------\\n---------\\n---------\\n---------\\n---------\\n---------"
             }
         ]
     }
