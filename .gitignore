@@ -13,4 +13,5 @@
 docker-compose.yml
 Dockerfile
 launch_botica.sh
+launch_botica.bat
 /tmp
