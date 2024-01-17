@@ -8,10 +8,15 @@
 /target
 /src/main/resources/ConfigurationFiles
 
-/docker
+# Generated configuration directories
+/docker/*
 /rabbitmq/*
+
+# Generated configuration files
 docker-compose.yml
 Dockerfile
 launch_botica.sh
 launch_botica.bat
-/tmp
+
+# Generated Collector bot files
+/tmp/*
