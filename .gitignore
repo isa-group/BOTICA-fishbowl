@@ -4,19 +4,19 @@
 # DS_Store Files
 **/.DS_Store
 
-# Generated Files
-/target
-/src/main/resources/ConfigurationFiles
-
-# Generated configuration directories
-/docker/*
-/rabbitmq/*
+# Java generated files
+/target/*
 
 # Generated configuration files
+/docker/*
+/rabbitmq/*
+/src/main/resources/ConfigurationFiles/*
 docker-compose.yml
 Dockerfile
 launch_botica.sh
 launch_botica.bat
 
+# Files generated from the Collector bot
+/tmp/*
 # Generated Collector bot files
 /tmp/*
