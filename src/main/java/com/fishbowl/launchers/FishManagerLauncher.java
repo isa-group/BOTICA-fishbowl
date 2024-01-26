@@ -47,5 +47,10 @@ public class FishManagerLauncher extends AbstractLauncher {
         JSONObject message = new JSONObject();
         return message;
     }
+
+    @Override
+    protected boolean shutdownCondition() {
+        return false;
+    }
     
 }
