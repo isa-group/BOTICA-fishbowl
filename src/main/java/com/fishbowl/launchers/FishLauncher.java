@@ -94,4 +94,9 @@ public class FishLauncher extends AbstractLauncher {
         message.put("fishYPosition", fishYPosition);
         return message;
     }
+
+    @Override
+    protected boolean shutdownCondition() {
+        return true;
+    }
 }
