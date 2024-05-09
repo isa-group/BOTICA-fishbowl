@@ -1,7 +1,7 @@
 package com.fishbowl.main;
 
-import com.botica.runners.ConfigurationLoader;
-import com.botica.utils.configuration.CreateConfiguration;
+import es.us.lsi.botica.runners.ConfigurationLoader;
+import es.us.lsi.botica.utils.configuration.CreateConfiguration;
 
 public class ConfigurationSetup {
 

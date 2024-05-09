@@ -5,7 +5,7 @@ import java.util.Random;
 
 import org.json.JSONObject;
 
-import com.botica.launchers.AbstractLauncher;
+import es.us.lsi.botica.launchers.AbstractLauncher;
 
 public class FishLauncher extends AbstractLauncher {
     
