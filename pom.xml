@@ -127,16 +127,6 @@
               <mainClass>com.fishbowl.main.LaunchShutdown</mainClass>
             </configuration>
           </execution>
-          <!-- Generate template -->
-          <execution>
-            <id>generate-template</id>
-            <goals>
-              <goal>java</goal>
-            </goals>
-            <configuration>
-              <mainClass>com.fishbowl.main.GenerateBotTemplates</mainClass>
-            </configuration>
-          </execution>
         </executions>
       </plugin>
     </plugins>
