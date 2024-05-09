@@ -2,8 +2,8 @@ package com.fishbowl.main;
 
 import java.util.List;
 
-import es.us.lsi.botica.runners.CollectorLoader;
-import es.us.lsi.botica.utils.collector.CollectorUtils;
+import es.us.isa.botica.runners.CollectorLoader;
+import es.us.isa.botica.utils.collector.CollectorUtils;
 
 import com.github.dockerjava.api.DockerClient;
 

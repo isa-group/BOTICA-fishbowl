@@ -6,7 +6,7 @@ import java.util.Properties;
 
 import org.json.JSONObject;
 
-import es.us.lsi.botica.launchers.AbstractLauncher;
+import es.us.isa.botica.launchers.AbstractLauncher;
 import com.fishbowl.utils.Fishbowl;
 
 public class FishManagerLauncher extends AbstractLauncher {

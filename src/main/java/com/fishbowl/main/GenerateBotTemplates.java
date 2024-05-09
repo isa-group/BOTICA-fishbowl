@@ -1,6 +1,6 @@
 package com.fishbowl.main;
 
-import es.us.lsi.botica.utils.templates.TemplateGenerator;
+import es.us.isa.botica.utils.templates.TemplateGenerator;
 
 public class GenerateBotTemplates {
 

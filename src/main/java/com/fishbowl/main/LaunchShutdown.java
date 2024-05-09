@@ -2,9 +2,9 @@ package com.fishbowl.main;
 
 import java.util.List;
 
-import es.us.lsi.botica.runners.CollectorLoader;
-import es.us.lsi.botica.runners.ShutdownLoader;
-import es.us.lsi.botica.utils.shutdown.ShutdownUtils;
+import es.us.isa.botica.runners.CollectorLoader;
+import es.us.isa.botica.runners.ShutdownLoader;
+import es.us.isa.botica.utils.shutdown.ShutdownUtils;
 
 public class LaunchShutdown {
     private static String shutdownPropertiesFilePath = "src/main/resources/BOTICAConfig/shutdown.properties";
