@@ -15,7 +15,7 @@
             ],
             "queueByBot": false
         },
-        "requiredPaths":[
+        "mount":[
         ],
         "bots": [
             {
@@ -51,8 +51,11 @@
             "bindings": ["fishMovement"],
             "queueByBot": false
         },
-        "requiredPaths": [
-            "./src/main/resources/fishbowl"
+        "mount": [
+            {
+                "source": "./fishbowl",
+                "target": "/app/fishbowl"
+            }
         ],
         "bots": [
             {

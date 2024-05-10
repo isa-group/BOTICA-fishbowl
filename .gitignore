@@ -16,7 +16,4 @@ Dockerfile
 launch_botica.sh
 launch_botica.bat
 
-# Files generated from the Collector bot
-/tmp/*
-# Generated Collector bot files
-/tmp/*
+/fishbowl/
