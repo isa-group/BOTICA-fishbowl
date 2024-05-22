@@ -32,7 +32,7 @@ public class FishManagerLauncher extends AbstractLauncher {
         if (fishbowl.getFishSilouette(fishXPosition, fishYPosition).equals("-")) {
             fishbowl.updateFishPosition(fishXPosition, fishYPosition, fishSilouette);
             logger.info("{} fish position updated to ({},{})", fishSilouette, fishXPosition, fishYPosition);
-            try (FileOutputStream fos = new FileOutputStream("src/main/resources/fishbowl/v" + fishbowlVersion++ + ".txt")) {
+            try (FileOutputStream fos = new FileOutputStream("/app/fishbowl/v" + fishbowlVersion++ + ".txt")) {
                 fos.write(fishbowl.getFishbowl().getBytes());
             } catch (IOException e) {
                 logger.error("Error writing the fishbowl in the file", e);
