@@ -1,0 +1,58 @@
+broker:
+  type: rabbitmq
+  host: "rabbitmq"
+  port: 5671
+  uiPort: 15671
+  username: "username"
+  password: "password"
+  configurationPaths: # provisional
+    main: "rabbitmq/rabbitmq.conf"
+    definitions: "rabbitmq/definitions.json"
+    connection: "rabbitmq/server-config.json"
+
+bots:
+  - name: "Fish"
+    image: "fishbowl"
+    mount: [ ]
+    lifecycle:
+      type: proactive
+      initialDelay: 30
+      period: 10
+    publish:
+      key: "fish_movement"
+      order: "move_fish"
+    subscribe: [ ]
+    instances:
+      - id: "fish_1"
+        persistent: true
+        environment:
+          - FISH_POSITION_X=0
+          - FISH_POSITION_Y=0
+          - FISH_SILHOUETTE=1
+      - id: "fish_2"
+        persistent: true
+        lifecycle:
+          type: proactive
+          initialDelay: 30
+          period: 20
+        environment:
+          - FISH_POSITION_X=5
+          - FISH_POSITION_Y=5
+          - FISH_SILHOUETTE=2
+
+  - name: "FishManager"
+    image: "fishbowl"
+    mount:
+      - source: "./fishbowl"
+        target: "/app/fishbowl"
+    lifecycle:
+      type: reactive
+      order: "move_fish"
+    publish:
+      key: "test"
+      order: "test"
+    subscribe: [ "fish_movement" ]
+    instances:
+      - id: "manager_1"
+        persistent: true
+        environment: [ ]

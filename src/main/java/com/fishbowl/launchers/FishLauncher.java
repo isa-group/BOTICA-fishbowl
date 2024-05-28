@@ -8,8 +8,11 @@ import org.json.JSONObject;
 import es.us.isa.botica.launchers.AbstractLauncher;
 
 public class FishLauncher extends AbstractLauncher {
-    
-    private Random random = new Random();
+
+    private static Integer fishXPosition = Integer.parseInt(System.getenv("FISH_POSITION_X"));
+    private static Integer fishYPosition = Integer.parseInt(System.getenv("FISH_POSITION_Y"));
+
+    private final Random random = new Random();
 
     public FishLauncher(String keyToPublish, String orderToPublish, Properties botProperties) {
         super(keyToPublish, orderToPublish, botProperties);
@@ -17,11 +20,6 @@ public class FishLauncher extends AbstractLauncher {
 
     @Override
     protected void botAction() {
-
-        Properties botProperties = getBotProperties();
-        Integer fishXPosition = Integer.parseInt(botProperties.getProperty("bot.xPosition"));
-        Integer fishYPosition = Integer.parseInt(botProperties.getProperty("bot.yPosition"));
-
         logger.info("Fish position: ({},{})", fishXPosition, fishYPosition);
 
         int movement = random.nextInt(8);
@@ -74,22 +72,13 @@ public class FishLauncher extends AbstractLauncher {
             default:
                 break;
         }
-        botProperties.setProperty("bot.xPosition", fishXPosition.toString());
-        botProperties.setProperty("bot.yPosition", fishYPosition.toString());
-        setBotProperties(botProperties);
     }
 
     @Override
     protected JSONObject createMessage() {
-
-        Properties botProperties = getBotProperties();
-        String fishSilouette = botProperties.getProperty("bot.fishSilouette");
-        Integer fishXPosition = Integer.parseInt(botProperties.getProperty("bot.xPosition"));
-        Integer fishYPosition = Integer.parseInt(botProperties.getProperty("bot.yPosition"));
-        
         JSONObject message = new JSONObject();
         message.put("order", this.orderToPublish);
-        message.put("fishSilouette", fishSilouette);
+        message.put("fishSilouette", System.getenv("FISH_SILHOUETTE"));
         message.put("fishXPosition", fishXPosition);
         message.put("fishYPosition", fishYPosition);
         return message;

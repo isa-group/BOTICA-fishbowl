@@ -11,22 +11,15 @@ import es.us.isa.botica.utils.bot.BotHandler;
 
 public class LaunchBot {
 
-    private static String botPropertiesFilePath = System.getenv("BOT_PROPERTY_FILE_PATH");  // The path to the bot's properties file.
     private static String launchersPackage = "com.fishbowl.launchers";                           // The package where the launchers are located.
 
     public static void main(String[] args) {
-
-        if (args.length == 1){
-            botPropertiesFilePath = args[0];
-        }
-
-        BOTICALoader loader = new BOTICALoader(botPropertiesFilePath, true);
+        BOTICALoader loader = new BOTICALoader();
 
         String botType = loader.getBotType();
         String keyToPublish = loader.getKeyToPublish();
         String orderToPublish = loader.getOrderToPublish();
-        Properties botProperties = loader.getBotProperties();
-        AbstractLauncher launcher = BotHandler.handleLauncherType(botType, keyToPublish, orderToPublish, botProperties, launchersPackage);
+        AbstractLauncher launcher = BotHandler.handleLauncherType(botType, keyToPublish, orderToPublish, null, launchersPackage);
 
         if (launcher == null){
             throw new NullPointerException("Bot launcher does not exist");

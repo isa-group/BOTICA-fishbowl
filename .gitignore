@@ -12,8 +12,7 @@
 /rabbitmq/*
 /src/main/resources/ConfigurationFiles/*
 docker-compose.yml
-Dockerfile
-launch_botica.sh
-launch_botica.bat
+launch-botica.sh
+launch-botica.bat
 
 /fishbowl/

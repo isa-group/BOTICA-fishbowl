@@ -95,7 +95,7 @@
               <goal>exec</goal>
             </goals>
             <configuration>
-              <executable>launch_botica.sh</executable>
+              <executable>launch-botica.sh</executable>
             </configuration>
           </execution>
           <execution>
@@ -104,7 +104,7 @@
               <goal>exec</goal>
             </goals>
             <configuration>
-              <executable>launch_botica.bat</executable>
+              <executable>launch-botica.bat</executable>
             </configuration>
           </execution>
           <!-- Launch shutdown -->
