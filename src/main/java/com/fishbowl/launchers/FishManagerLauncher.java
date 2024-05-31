@@ -2,8 +2,8 @@ package com.fishbowl.launchers;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Properties;
 
+import es.us.isa.botica.configuration.MainConfiguration;
 import org.json.JSONObject;
 
 import es.us.isa.botica.launchers.AbstractLauncher;
@@ -18,8 +18,8 @@ public class FishManagerLauncher extends AbstractLauncher {
     private static int fishbowlVersion = 1;
     private static String fishbowlChars = "---------\n---------\n---------\n---------\n---------\n---------\n---------\n---------\n---------";
 
-    public FishManagerLauncher(String keyToPublish, String orderToPublish, Properties botProperties) {
-        super(keyToPublish, orderToPublish, botProperties);
+    public FishManagerLauncher(MainConfiguration mainConfiguration) {
+        super(mainConfiguration);
     }
 
     @Override

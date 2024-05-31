@@ -1,8 +1,8 @@
 package com.fishbowl.launchers;
 
-import java.util.Properties;
 import java.util.Random;
 
+import es.us.isa.botica.configuration.MainConfiguration;
 import org.json.JSONObject;
 
 import es.us.isa.botica.launchers.AbstractLauncher;
@@ -14,8 +14,8 @@ public class FishLauncher extends AbstractLauncher {
 
     private final Random random = new Random();
 
-    public FishLauncher(String keyToPublish, String orderToPublish, Properties botProperties) {
-        super(keyToPublish, orderToPublish, botProperties);
+    public FishLauncher(MainConfiguration configuration) {
+        super(configuration);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class FishLauncher extends AbstractLauncher {
     @Override
     protected JSONObject createMessage() {
         JSONObject message = new JSONObject();
-        message.put("order", this.orderToPublish);
+        message.put("order", botTypeConfiguration.getPublishConfiguration().getOrder());
         message.put("fishSilouette", System.getenv("FISH_SILHOUETTE"));
         message.put("fishXPosition", fishXPosition);
         message.put("fishYPosition", fishYPosition);

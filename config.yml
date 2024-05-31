@@ -1,17 +1,11 @@
 broker:
   type: rabbitmq
-  host: "rabbitmq"
-  port: 5671
-  uiPort: 15671
   username: "username"
   password: "password"
-  configurationPaths: # provisional
-    main: "rabbitmq/rabbitmq.conf"
-    definitions: "rabbitmq/definitions.json"
-    connection: "rabbitmq/server-config.json"
+  port: 5672
 
 bots:
-  - name: "Fish"
+  Fish: # TODO: still in uppercase, implementation limitations, changes scheduled
     image: "fishbowl"
     mount: [ ]
     lifecycle:
@@ -23,13 +17,13 @@ bots:
       order: "move_fish"
     subscribe: [ ]
     instances:
-      - id: "fish_1"
+      fish_1:
         persistent: true
         environment:
           - FISH_POSITION_X=0
           - FISH_POSITION_Y=0
           - FISH_SILHOUETTE=1
-      - id: "fish_2"
+      fish_2:
         persistent: true
         lifecycle:
           type: proactive
@@ -39,8 +33,7 @@ bots:
           - FISH_POSITION_X=5
           - FISH_POSITION_Y=5
           - FISH_SILHOUETTE=2
-
-  - name: "FishManager"
+  FishManager:
     image: "fishbowl"
     mount:
       - source: "./fishbowl"
@@ -53,6 +46,6 @@ bots:
       order: "test"
     subscribe: [ "fish_movement" ]
     instances:
-      - id: "manager_1"
+      manager_1:
         persistent: true
         environment: [ ]

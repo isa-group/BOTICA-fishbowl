@@ -7,12 +7,9 @@
 # Java generated files
 /target/*
 
-# Generated configuration files
-/docker/*
-/rabbitmq/*
-/src/main/resources/ConfigurationFiles/*
+/fishbowl/
+/.botica/
+
 docker-compose.yml
 launch-botica.sh
 launch-botica.bat
-
-/fishbowl/
