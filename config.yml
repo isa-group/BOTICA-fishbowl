@@ -1,0 +1,51 @@
+broker:
+  type: rabbitmq
+  username: "username"
+  password: "password"
+  port: 5672
+
+bots:
+  Fish: # TODO: still in uppercase, implementation limitations, changes scheduled
+    image: "fishbowl"
+    mount: [ ]
+    lifecycle:
+      type: proactive
+      initialDelay: 30
+      period: 10
+    publish:
+      key: "fish_movement"
+      order: "move_fish"
+    subscribe: [ ]
+    instances:
+      fish_1:
+        persistent: true
+        environment:
+          - FISH_POSITION_X=0
+          - FISH_POSITION_Y=0
+          - FISH_SILHOUETTE=1
+      fish_2:
+        persistent: true
+        lifecycle:
+          type: proactive
+          initialDelay: 30
+          period: 20
+        environment:
+          - FISH_POSITION_X=5
+          - FISH_POSITION_Y=5
+          - FISH_SILHOUETTE=2
+  FishManager:
+    image: "fishbowl"
+    mount:
+      - source: "./fishbowl"
+        target: "/app/fishbowl"
+    lifecycle:
+      type: reactive
+      order: "move_fish"
+    publish:
+      key: "test"
+      order: "test"
+    subscribe: [ "fish_movement" ]
+    instances:
+      manager_1:
+        persistent: true
+        environment: [ ]
