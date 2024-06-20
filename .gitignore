@@ -1,15 +1,14 @@
-# VSCode Settings
-/.vscode/
-
 # DS_Store Files
 **/.DS_Store
 
-# Java generated files
-/target/*
+# IDEA Files
+.idea/
 
+# Botica Director Files
+.botica/
+
+# Generated Files
+target/
+
+# Manager files
 /fishbowl/
-/.botica/
-
-docker-compose.yml
-launch-botica.sh
-launch-botica.bat

@@ -5,13 +5,13 @@ broker:
   port: 5672
 
 bots:
-  Fish: # TODO: still in uppercase, implementation limitations, changes scheduled
-    image: "fishbowl"
+  fish:
+    image: "fishbowl_fish"
     mount: [ ]
     lifecycle:
       type: proactive
-      initialDelay: 30
-      period: 10
+      initialDelay: 5
+      period: 5
     publish:
       key: "fish_movement"
       order: "move_fish"
@@ -20,21 +20,21 @@ bots:
       fish_1:
         persistent: true
         environment:
+          - FISH_SILHOUETTE=1
           - FISH_POSITION_X=0
           - FISH_POSITION_Y=0
-          - FISH_SILHOUETTE=1
       fish_2:
         persistent: true
         lifecycle:
           type: proactive
-          initialDelay: 30
-          period: 20
+          initialDelay: 5
+          period: 10
         environment:
+          - FISH_SILHOUETTE=2
           - FISH_POSITION_X=5
           - FISH_POSITION_Y=5
-          - FISH_SILHOUETTE=2
-  FishManager:
-    image: "fishbowl"
+  manager:
+    image: "fishbowl_manager"
     mount:
       - source: "./fishbowl"
         target: "/app/fishbowl"
